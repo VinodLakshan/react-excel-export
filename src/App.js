@@ -52,10 +52,11 @@ function App() {
     setSheetStyles(ws, sheetData);
 
     XLSX.utils.book_append_sheet(wb, ws, "Users");
-    // XLSX.writeFile(wb, "all_users.xlsx")
+    XLSX.writeFile(wb, "all_users.xlsx")
 
   }
 
+  // convert data (headers & data) as AOA format
   const getSheetData = (headers, data) => {
 
     const fields = Object.keys(data[0]);
@@ -66,7 +67,6 @@ function App() {
     });
 
     sheetData.unshift(headers);
-    console.log(sheetData)
     return sheetData;
   }
 
